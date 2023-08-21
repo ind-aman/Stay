@@ -1,17 +1,37 @@
 import { Component } from '@angular/core';
-import { FormControl} from '@angular/forms';
+import {trigger,state,transition, animation, style, animate} from '@angular/animations';
 
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css']
+  styleUrls: ['./dropdown.component.css'],
+
+  animations:[
+    trigger('arrowtoggle',[
+      state('upside',style({
+        transform: 'rotateZ(0deg)'
+      })),
+      state('downside',style({
+        transform: 'rotateZ(180deg)'
+      })),
+      transition('upside=>downside',[
+        animate('.3s')
+      ]),
+      transition('downside=>upside',[
+        animate('.3s')
+      ])
+    ])
+  ]
 })
 export class DropdownComponent {
 
 toggle:string = "block";
+toggle2:boolean=true;
 selectdList:myOption[]=[];
 optionTitle:string="Select From Below";
+
+
 
 OptionList=[
   { label: 'Option 1', name: 'option1', value: 'value1' },
@@ -20,7 +40,7 @@ OptionList=[
 ]
 
 optionClick(optionValue:myOption){
-  const indexToRemove = this.selectdList.findIndex(option => option.value === optionValue.value);
+  const indexToRemove = this.selectdList.indexOf(optionValue);
   
   if (indexToRemove !== -1) {
     this.selectdList.splice(indexToRemove, 1);
@@ -36,6 +56,7 @@ optionClick(optionValue:myOption){
 
 toggleClick(){
   this.toggle==="block"? this.toggle="none":this.toggle="block";
+  this.toggle2=!this.toggle2;
 }
 
 }

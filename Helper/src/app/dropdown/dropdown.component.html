@@ -2,7 +2,7 @@
     
     
     <div class="dropdown" >
-        <button (click)="toggleClick()">{{optionTitle}}</button>
+        <button (click)="toggleClick()">{{optionTitle}} <span><img src="../../assets/icons/down-arrow.png" width="16px" [@arrowtoggle]="toggle2 ? 'upside':'downside'"></span></button>
         
         <div *ngFor="let item of OptionList" class="optionClass" [ngStyle]="{display:toggle }" >
             <label style="display: flex; align-items: center;">
