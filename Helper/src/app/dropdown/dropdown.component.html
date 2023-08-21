@@ -1,0 +1,15 @@
+<body>
+    
+    
+    <div class="dropdown" >
+        <button (click)="toggleClick()">{{optionTitle}}</button>
+        
+        <div *ngFor="let item of OptionList" class="optionClass" [ngStyle]="{display:toggle }" >
+            <label style="display: flex; align-items: center;">
+            <input  type="checkbox" name={{item.name}} value={{item.value}} (click)="optionClick(item)">
+            {{item.label}}
+            </label>
+        </div>
+    </div>
+    
+</body>

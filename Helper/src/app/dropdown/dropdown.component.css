@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    justify-content: center;
+   
+}
+.dropdown{
+    width: 20%;
+}
+.dropdown button{
+    padding: 10px;
+    margin-top: 200px;
+    border-bottom: 4px solid gray;
+    width: 150px;
+}
+.dropdown input[type=checkbox]{
+    height: 20px;
+    width: 20px;
+}
+
+.dropdown .optionClass:nth-of-type(odd){
+    background-color: gainsboro;
+    
+}
+.dropdown .optionClass{
+    height: 2pc;
+    align-items: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
