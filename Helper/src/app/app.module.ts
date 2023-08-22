@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TempComponent } from './temp/temp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DropdownComponent
+    DropdownComponent,
+    TempComponent
   ],
   imports: [
     MatSelectModule,
