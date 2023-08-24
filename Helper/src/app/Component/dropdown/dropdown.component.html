@@ -2,10 +2,10 @@
     
     
     <div class="dropdown" >
-        <button [ngClass]="{arrowChange: toggle2 }" (click)="toggleClick()">{{optionTitle}} <span ><img src="../../assets/icons/down-arrow.png" width="16px" ></span></button>
+        <button  (click)="toggleClick()">{{optionTitle}} <span ><img [@arrowAnimation]="arrowstate"  src="../../assets/icons/down-arrow.png" width="16px" ></span></button>
         
-        <div *ngFor="let item of OptionList"  [ngStyle]="{display:toggle }"  >
-            <label style="display: flex; align-items: center;">
+        <div *ngFor="let item of OptionList"  [ngStyle]="{display:toggle }" class="optionLabel">
+            <label style="display: flex; align-items: center;" >
             <input  type="checkbox" name={{item.name}} value={{item.value}} (click)="optionClick(item)">
             {{item.label}}
             </label>

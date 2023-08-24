@@ -22,7 +22,7 @@ body{
     width: 20px;
 }
 
-.dropdown .optionClass:nth-of-type(odd){
+.dropdown .optionLabel:nth-of-type(odd){
     background-color: gainsboro;
     
 }
