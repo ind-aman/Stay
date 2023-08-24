@@ -9,11 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AngularMaterialDropdownComponent } from './Component/angular-material-dropdown/angular-material-dropdown.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DropdownComponent
+    DropdownComponent,
+    AngularMaterialDropdownComponent
   ],
   imports: [
     MatSelectModule,
