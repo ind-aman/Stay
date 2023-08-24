@@ -5,29 +5,12 @@ import {trigger,state,transition, animation, style, animate} from '@angular/anim
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css'],
-
-  animations:[
-    trigger('arrowtoggle',[
-      state('upside',style({
-        transform: 'rotateZ(0deg)'
-      })),
-      state('downside',style({
-        transform: 'rotateZ(180deg)'
-      })),
-      transition('upside=>downside',[
-        animate('.3s')
-      ]),
-      transition('downside=>upside',[
-        animate('.3s')
-      ])
-    ])
-  ]
+  styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent {
 
 toggle:string = "block";
-toggle2:boolean=true;
+toggle2:boolean=false;
 selectdList:myOption[]=[];
 optionTitle:string="Select From Below";
 
@@ -56,7 +39,7 @@ optionClick(optionValue:myOption){
 
 toggleClick(){
   this.toggle==="block"? this.toggle="none":this.toggle="block";
-  this.toggle2=!this.toggle2;
+  this.toggle2 = !this.toggle2;
 }
 
 }

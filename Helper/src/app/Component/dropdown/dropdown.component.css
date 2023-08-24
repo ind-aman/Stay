@@ -33,9 +33,13 @@ body{
     font-weight: bold;
     letter-spacing: 1px;
 }
-.dropdown button img{
+
+.dropdown img{
+    transform: rotateX(0deg);
     transition: all 1s;
 }
-.dropdown button img:active{
-    transform: rotateZ(180deg);
+
+.arrowChange span{ 
+    color: blue;
+    transform: rotateX(180deg) ;
 }
