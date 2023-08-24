@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-temp',
-  templateUrl: './temp.component.html',
-  styleUrls: ['./temp.component.css']
+  selector: 'app-angular-material-dropdown',
+  templateUrl: './angular-material-dropdown.component.html',
+  styleUrls: ['./angular-material-dropdown.component.css']
 })
-export class TempComponent {
+export class AngularMaterialDropdownComponent {
 
   optionHead:string="";
 

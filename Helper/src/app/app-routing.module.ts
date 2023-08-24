@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TempComponent } from './temp/temp.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import { AngularMaterialDropdownComponent } from './Component/angular-material-dropdown/angular-material-dropdown.component';
+import { DropdownComponent } from './Component/dropdown/dropdown.component';
 
-const routes: Routes = [{path:'second', component:TempComponent},
+const routes: Routes = [{path:'second', component:AngularMaterialDropdownComponent},
                         {path:'',component:DropdownComponent}];
 
 @NgModule({

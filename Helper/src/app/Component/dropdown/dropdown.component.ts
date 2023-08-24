@@ -10,10 +10,10 @@ import {trigger,state,transition, animation, style, animate} from '@angular/anim
   animations:[
     trigger('arrowtoggle',[
       state('upside',style({
-        transform: 'rotateZ(180deg)'
+        transform: 'rotateZ(0deg)'
       })),
       state('downside',style({
-        transform: 'rotateZ(0deg)'
+        transform: 'rotateZ(180deg)'
       })),
       transition('upside=>downside',[
         animate('.3s')
