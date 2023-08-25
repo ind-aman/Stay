@@ -6,10 +6,13 @@
         
         <div *ngFor="let item of locationArray"  [ngStyle]="{display:toggle }" class="optionLabel">
             <label style="display: flex; align-items: center;" >
-            <input  type="checkbox" name={{item[keyString]}} [checked]="item.isChecked" (change)="optionClick(item, $event)">
+            <input  type="checkbox" name={{item[keyString]}} [checked]="item.isChecked" (change)="optionClick(item, $event)" [disabled]="maxlimit(item)">
             {{item[keyString]}}
             </label>
         </div>
+        <div style="color: red;" *ngIf="selectedCount >= maxSelect"> You Can Select only {{maxSelect}}</div>
     </div>
     
+    
+   
 </body>

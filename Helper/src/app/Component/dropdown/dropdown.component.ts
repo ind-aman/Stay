@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {trigger,state,transition, animation, style, animate} from '@angular/animations';
+import { Building, Floor } from 'src/app/app.component';
+
 
 
 @Component({
@@ -28,19 +30,20 @@ import {trigger,state,transition, animation, style, animate} from '@angular/anim
 export class DropdownComponent {
   @Input({required:true}) locationType: "Building" | "Floor" | null=null;
   @Input() locationArray: any= [];
+  @Input() maxSelect: number=1000; 
 
 toggle:string = "block";
 optionTitle:string="Select From Below";
 keyString: "buildingName" | "floorName"="buildingName";
 
 arrowstate: 'arrowDown'|'arrowUp' = 'arrowUp';
+Checkboxstatus:boolean=false;
+selectedCount:number =0;
 
 ngOnInit(): void {
   if(this.locationType == "Building") this.keyString = "buildingName";
   else if(this.locationType == "Floor") this.keyString = "floorName";
   this.setOptionTitle()
-  console.log(this.keyString , this.locationType);
-
 }
 
 
@@ -50,7 +53,7 @@ OptionList=[
   { label: 'Option 3', name: 'option3', value: 'value3' }
 ]
 
-optionClick(optionValue:any, event:any){
+optionClick(optionValue:Building | Floor, event:any){
   this.locationArray[this.locationArray.indexOf(optionValue)].isChecked = event.target.checked;
 
   console.log(optionValue);
@@ -60,6 +63,17 @@ optionClick(optionValue:any, event:any){
 setOptionTitle(){
   let selectdArray = this.locationArray.filter((x: { isChecked: boolean; })=>x.isChecked == true);
   this.optionTitle = selectdArray.length == 0 ? "Select "+ this.locationType : selectdArray.length == 1 ? selectdArray[0][this.keyString] : 'Multiple Selected';
+  this.selectedCount = selectdArray.length;
+}
+
+maxlimit(item:Building | Floor):boolean{
+
+  if(this.selectedCount >= this.maxSelect && item.isChecked==false){
+
+    return true;
+  }
+    return false;
+  
 }
 
 toggleClick(){

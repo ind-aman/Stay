@@ -1,19 +1,16 @@
 body{
     display: flex;
     justify-content: center;
-    height: 400px;
+    
    
 }
-.dropdown{
-    width: 300px;
-}
+
 .dropdown button{
     display: flex;
     justify-content: space-between;
     background-color: white;
     text-align: left;
     padding: 10px;
-    margin-top: 200px;
     border: none;
     border-bottom: 3px solid gray;
     width: 300px;
@@ -38,9 +35,4 @@ body{
 .dropdown img{
     transform: rotateX(0deg);
     transition: all 1s;
-}
-
-.arrowChange span{ 
-    color: blue;
-    transform: rotateX(180deg) ;
 }

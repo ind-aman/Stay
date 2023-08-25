@@ -1,11 +1,13 @@
 <body>
     
-    <!-- <router-outlet></router-outlet> -->
+    
     <div class="dropdownContainer">
 
-        <app-dropdown [locationType]="'Building'" [locationArray]="buildingArray" class="dropdown"></app-dropdown>
-        <app-dropdown [locationType]="'Floor'" [locationArray]="floorArray" class="dropdown"></app-dropdown>
+        
+        <app-dropdown [locationType]="'Building'" [locationArray]="buildingArray" class="dropdown" [maxSelect]="2"></app-dropdown>
+        <app-dropdown [locationType]="'Floor'" [locationArray]="floorArray" class="dropdown" [maxSelect]="3"></app-dropdown>
         
     </div>
-        <a routerLink="/second">Go to Second</a>
+    
+   
 </body>
