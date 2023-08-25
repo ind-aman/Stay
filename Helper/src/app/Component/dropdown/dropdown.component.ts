@@ -38,7 +38,7 @@ arrowstate: 'arrowDown'|'arrowUp' = 'arrowUp';
 ngOnInit(): void {
   if(this.locationType == "Building") this.keyString = "buildingName";
   else if(this.locationType == "Floor") this.keyString = "floorName";
-  
+  this.setOptionTitle()
   console.log(this.keyString , this.locationType);
 
 }
@@ -52,8 +52,14 @@ OptionList=[
 
 optionClick(optionValue:any, event:any){
   this.locationArray[this.locationArray.indexOf(optionValue)].isChecked = event.target.checked;
+
   console.log(optionValue);
+  this.setOptionTitle();
   
+}
+setOptionTitle(){
+  let selectdArray = this.locationArray.filter((x: { isChecked: boolean; })=>x.isChecked == true);
+  this.optionTitle = selectdArray.length == 0 ? "Select "+ this.locationType : selectdArray.length == 1 ? selectdArray[0][this.keyString] : 'Multiple Selected';
 }
 
 toggleClick(){
