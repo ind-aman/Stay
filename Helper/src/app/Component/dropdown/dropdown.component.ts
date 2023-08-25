@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {trigger,state,transition, animation, style, animate} from '@angular/animations';
 
 
@@ -26,13 +26,22 @@ import {trigger,state,transition, animation, style, animate} from '@angular/anim
   ])]
 })
 export class DropdownComponent {
+  @Input({required:true}) locationType: "Building" | "Floor" | null=null;
+  @Input() locationArray: any= [];
 
 toggle:string = "block";
-selectdList:myOption[]=[];
 optionTitle:string="Select From Below";
+keyString: "buildingName" | "floorName"="buildingName";
 
 arrowstate: 'arrowDown'|'arrowUp' = 'arrowUp';
 
+ngOnInit(): void {
+  if(this.locationType == "Building") this.keyString = "buildingName";
+  else if(this.locationType == "Floor") this.keyString = "floorName";
+  
+  console.log(this.keyString , this.locationType);
+
+}
 
 
 OptionList=[
@@ -41,19 +50,10 @@ OptionList=[
   { label: 'Option 3', name: 'option3', value: 'value3' }
 ]
 
-optionClick(optionValue:myOption){
-  const indexToRemove = this.selectdList.indexOf(optionValue);
+optionClick(optionValue:any, event:any){
+  this.locationArray[this.locationArray.indexOf(optionValue)].isChecked = event.target.checked;
+  console.log(optionValue);
   
-  if (indexToRemove !== -1) {
-    this.selectdList.splice(indexToRemove, 1);
-  }
-  else{
-    this.selectdList.push(optionValue);
-  }
-
-  if(this.selectdList.length>1) this.optionTitle="Multiple Selected";
-  else if(this.selectdList.length==1) this.optionTitle=this.selectdList[0].name;
-  else this.optionTitle = "Select From below";
 }
 
 toggleClick(){
@@ -63,9 +63,4 @@ toggleClick(){
 
 }
 
-interface myOption{
-  label:string;
-  name:string;
-  value:string;
-  
-}
+

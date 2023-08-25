@@ -1,4 +1,7 @@
-app-dropdown{
-    height: 500px;
-    overflow: hidden;
+.dropdownContainer{
+ display: grid;
+ grid-template-columns: auto, auto;   
+}
+.dropdownContainer .dropdown{
+    width: 50%;
 }
