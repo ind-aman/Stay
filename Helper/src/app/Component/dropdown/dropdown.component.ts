@@ -44,6 +44,19 @@ ngOnInit(): void {
   if(this.locationType == "Building") this.keyString = "buildingName";
   else if(this.locationType == "Floor") this.keyString = "floorName";
   this.setOptionTitle()
+
+  switch (this.locationType) {
+    case "Building":
+      this.keyString = "buildingName"; 
+      break;
+    
+    case "Floor":
+      this.keyString = "floorName";
+      break;
+      
+    default:
+      break;
+  }
 }
 
 
